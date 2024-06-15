@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-
+use yii\web\View;
 /** @var yii\web\View $this */
 /** @var app\models\Task $model */
 
@@ -23,3 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
+<?php
+$this->registerJs(<<<JS
+    document.getElementById('task-task_title').setAttribute('rows', '1');
+JS
+    , View::POS_READY);
+?>
